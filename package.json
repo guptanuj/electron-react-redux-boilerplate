@@ -12,6 +12,7 @@
   "dependencies": {
     "@babel/register": "^7.9.0",
     "connected-react-router": "^6.8.0",
+    "electron-updater": "^4.3.9",
     "history": "^4.10.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -57,6 +58,22 @@
     "pack:mac": "gulp pack-mac",
     "pack:win": "gulp pack-win",
     "pack:linux": "gulp pack-linux",
-    "private:format": "prettier gulpfile.js babel.config.js \"tasks/*.js\" \"app/**/*.js\" \"test/**/*.js\""
+    "private:format": "prettier gulpfile.js babel.config.js \"tasks/*.js\" \"app/**/*.js\" \"test/**/*.js\"",
+    "publish": "build --mac --win -p always"
+  },
+  "build": {
+    "publish": [{
+      "provider": "github",
+      "owner": "anujgupta3821@gmail.com",
+      "repo": "electron-updater-example"
+  }],
+    "appId": "com.github.iffy.electronupdaterexample",
+    "mac": {
+      "category": "your.app.category.type",
+      "target": [
+        "zip",
+        "dmg"
+      ]
+    }
   }
 }
